@@ -1,0 +1,9 @@
+/* globals.css o header.css */
+.navbar .nav-link {
+  color: #1f1f1f !important;
+}
+
+.navbar .nav-link:hover {
+  color: #3888ff !important;
+  transition: 0.2s;
+}

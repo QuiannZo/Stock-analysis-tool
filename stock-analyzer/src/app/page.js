@@ -1,7 +1,9 @@
 import "./globals.css"
 
+import WelcomeImage from "../components/welcomeImage/welcomeImage"
+
 export default function Home() {
   return (
-    <h1>Homepage</h1>
+    <WelcomeImage backgroundImage={"/imgs/background.jpg"} />
   );
 }
