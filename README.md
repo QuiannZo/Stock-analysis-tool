@@ -1,2 +1,2 @@
 # Stock-analysis-tool
-Web App to make stock analysis easy for clients. - DJango (Back-end) - React (Front-end) - MongoDB (Database) - REST API design
+Web App to make stock analysis easy for clients. - NextJS (Fullstack) - React (Front-end) - MongoDB - REST API design
