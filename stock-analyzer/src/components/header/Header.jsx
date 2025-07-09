@@ -17,6 +17,7 @@ export default function Header() {
       variant="light"
       expanded={expanded}
       className="shadow-sm py-2"
+      fixed="top"
     >
       <Container>
         <Navbar.Brand as={Link} href="/" className="d-flex align-items-center">
