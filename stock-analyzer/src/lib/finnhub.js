@@ -19,3 +19,16 @@ export async function getStockQuote(symbol) {
     return null;
   }
 }
+
+// Necesita tener premium.
+export async function getStockCandles(symbol, resolution = "D", from, to) {
+  try {
+    const response = await axios.get(`${BASE_URL}/stock/candle`, {
+      params: { symbol, resolution, from, to, token: API_KEY },
+    });
+    return response.data; // contains the arrays de c, o, h, l, t, v.
+  } catch (error) {
+    console.error("Error al obtener velas de", symbol, error);
+    return null;
+  }
+}
