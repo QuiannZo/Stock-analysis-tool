@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .stock-title {
@@ -21,7 +21,7 @@
 .view-more-btn {
   background-color: #15616d;
   color: white;
-  padding: 8px 22px;
+  padding: 6px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;

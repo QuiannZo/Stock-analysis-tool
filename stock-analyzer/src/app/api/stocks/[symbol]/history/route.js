@@ -3,14 +3,31 @@ import { getStockHistory } from "../../../../../lib/yahoo";
 export async function GET(request, { params }) {
   const { symbol } = params;
 
-  const now = new Date();
-  const oneMonthAgo = new Date();
-  oneMonthAgo.setDate(now.getDate() - 30);
+  const searchParams = request.nextUrl.searchParams;
+  const from = searchParams.get('from');
+  const to = searchParams.get('to');
 
-  const isoNow = now.toISOString().split("T")[0];
-  const isoThen = oneMonthAgo.toISOString().split("T")[0];
+  if (!symbol || !from || !to) {
+    return new Response(JSON.stringify({ message: "Faltan parámetros requeridos: symbol, from, to." }), {
+      status: 400, // Bad Request
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 
-  const data = await getStockHistory(symbol, isoThen, isoNow);
+  try {
+    // Usamos las fechas 'from' y 'to' recibidas del cliente para la llamada al API externa.
+    const data = await getStockHistory(symbol, from, to);
 
-  return Response.json(data || []);
+    return new Response(JSON.stringify(data || []), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+  } catch (error) {
+    console.error(`Error en el API route para ${symbol}:`, error);
+    return new Response(JSON.stringify({ message: "Error interno del servidor al obtener el historial." }), {
+        status: 500, // Internal Server Error
+        headers: { 'Content-Type': 'application/json' },
+    });
+  }
 }

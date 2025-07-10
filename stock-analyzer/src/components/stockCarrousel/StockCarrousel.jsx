@@ -10,7 +10,7 @@ import "./StockCarrousel.css";
 import { getStockQuote } from "../../lib/finnhub";
 import StockChart from "../stockChart/StockChart";
 
-const symbols = ["AAPL", "TSLA", "MSFT", "AMZN"];
+const symbols = ["AAPL", "MSFT", "AMZN"];
 
 export default function StockSlider() {
   const [stocks, setStocks] = useState([]);

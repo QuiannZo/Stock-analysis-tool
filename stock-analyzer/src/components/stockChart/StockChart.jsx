@@ -13,10 +13,21 @@ export default function StockChart({ symbol }) {
     async function fetchCandles() {
       if (!symbol) return;
 
+      // 1. Calcular el rango de fechas para el último mes
+      const toDate = new Date();
+      const fromDate = new Date();
+      fromDate.setMonth(fromDate.getMonth() - 1); // ✅ Resta un mes
+
+      // Convertir a formato YYYY-MM-DD
+      const toISO = toDate.toISOString().split("T")[0];
+      const fromISO = fromDate.toISOString().split("T")[0];
+
       try {
-        const res = await fetch(`/api/stocks/${symbol}/history`);
+        // Incluir las fechas en la URL de la petición
+        const res = await fetch(
+          `/api/stocks/${symbol}/history?from=${fromISO}&to=${toISO}`
+        );
         const data = await res.json();
-        console.log("Datos históricos Yahoo:", data);
 
         if (Array.isArray(data) && data.length > 0) {
           const seriesData = data.map((entry) => ({
@@ -43,30 +54,46 @@ export default function StockChart({ symbol }) {
       type: "candlestick",
       height: 350,
       toolbar: {
-        show: true,
+        show: false,
+      },
+      zoom: {
+        enabled: false, 
       },
     },
     title: {
-      text: `${symbol} - Últimos 30 días`,
+      text: ``,
       align: "left",
     },
     xaxis: {
       type: "datetime",
-    },
-    yaxis: {
-      tooltip: {
-        enabled: true,
-      },
       labels: {
-        formatter: function (val) {
-            return val.toFixed(2); // ✅ solo 2 decimales
-        },
+        show: false, // Ocultar etiquetas del eje X
+      },
+      axisBorder: {
+        show: false, // Ocultar borde del eje X
+      },
+      axisTicks: {
+        show: false,
       }
     },
+    yaxis: {
+    show: true,
+    tooltip: {
+        enabled: true,
+    },
+    labels: {
+        formatter: function (val) {
+        return val.toFixed(2); // formatea el número a 2 decimales
+        }
+    }
+    },
+    grid: {
+      show: true, // cuadrícula de fondo
+    }
   };
 
-  if (loading) return <p>Cargando gráfico...</p>;
-  if (!series.length) return <p>No hay datos disponibles.</p>;
+  if (loading) return <div style={{height: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><p>Cargando...</p></div>;
+  if (!series.length) return <div style={{height: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><p>Sin datos.</p></div>;
 
   return <Chart options={options} series={series} type="candlestick" height={350} />;
 }
