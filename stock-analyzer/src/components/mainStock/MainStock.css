@@ -1,0 +1,35 @@
+.featured-stock-container {
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 50px;
+  background-color: white;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stock-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #1f1f1f;
+}
+
+.view-more-btn {
+  background-color: #15616d;
+  color: white;
+  padding: 8px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.view-more-btn:hover {
+  background-color: #238fa0;
+}

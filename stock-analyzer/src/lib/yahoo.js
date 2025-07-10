@@ -20,3 +20,4 @@ export async function getStockHistory(symbol, from, to) {
     return null;
   }
 }
+
