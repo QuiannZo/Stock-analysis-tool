@@ -1,0 +1,75 @@
+.stock-sliderRS {
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.stock-sliderRS .swiper {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.titleRS {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #303030;
+}
+
+.card-containerRS {
+    background-color: #ffffff;
+    border-radius: 0px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-imageRS {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-titleRS {
+    font-size: 21px;
+    margin: 12px 10px;
+    color: #4e4e4e;
+    font-weight: 600;
+}
+
+.card-priceRS {
+    font-size: 18px;
+    color: #1e7e34;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.card-buttonRS {
+    margin-top: 30px;
+    padding: 6px 26px;
+    border: 0px solid #999;
+    background: #15616D;
+    color: #fafafa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.card-buttonRS:hover {
+    background: #238fa0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #888;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #000;
+}

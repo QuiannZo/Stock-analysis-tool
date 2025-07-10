@@ -6,7 +6,7 @@
   height: 900px;
   background-size: cover;
   background-position: center;
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
   overflow: hidden;
 
   display: flex;
@@ -44,4 +44,8 @@
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 17px;
+}
+
+.main-btn:hover{
+    background-color: #117b8b;
 }
