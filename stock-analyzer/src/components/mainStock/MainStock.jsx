@@ -22,7 +22,7 @@ export default function FeaturedStock({ symbol, name }) {
 
         // Cambia el cálculo de la fecha de inicio para que reste un año
         const from = new Date(to);
-        from.setFullYear(from.getFullYear() - 1); // <-- Este es el cambio
+        from.setFullYear(from.getFullYear() - 1);
         const fromISO = from.toISOString().split("T")[0];
 
         try {
